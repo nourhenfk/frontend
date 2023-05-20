@@ -1,0 +1,45 @@
+
+<form  (ngSubmit) ="onSubmit()"
+      #tooltipForm="ngForm"
+      cForm
+      class="row g-3 needs-validation"
+>
+<c-col class="position-relative" [md]="4">
+  <label cLabel for="type">Type</label>
+  <input  [(ngModel)]="announcement.type" name="type" cFormControl id="type" required type="text" value="Mark" />
+  <c-form-feedback [valid]="true" tooltip>Looks good!</c-form-feedback>
+</c-col>
+  <c-col class="position-relative" [md]="4">
+    <label cLabel for="importance">Importance</label>
+    <input  [(ngModel)]="announcement.importance" name="importance" cFormControl id="importance" required type="text" value="Mark" />
+    <c-form-feedback [valid]="true" tooltip>Looks good!</c-form-feedback>
+  </c-col>
+  <c-col class="position-relative" [md]="4">
+    <label cLabel for="publicationDate">Date of publication  </label>
+    <input  [(ngModel)]="announcement.publicationDate" name="publicationDate" cFormControl id="publicationDate" required type="date" value="Otto" />
+    <c-form-feedback [valid]="true" tooltip>Looks good!</c-form-feedback>
+  </c-col>
+
+  <c-col class="position-relative" [md]="4">
+    <label cLabel for="subject">Subject</label>
+    <input  [(ngModel)]="announcement.subject" name="subject" cFormControl id="subject" required type="text" value="Mark" />
+    <c-form-feedback [valid]="true" tooltip>Looks good!</c-form-feedback>
+  </c-col>
+
+  <c-col class="position-relative" [md]="4">
+    <label cLabel for="text">Text</label>
+    <input  [(ngModel)]="announcement.text" name="text" cFormControl id="text" required type="text" value="Mark" />
+    <c-form-feedback [valid]="true" tooltip>Looks good!</c-form-feedback>
+  </c-col>
+
+  <c-col class="position-relative" [md]="4">
+    <label cLabel for="status">Status</label>
+    <input  [(ngModel)]="announcement.status" name="status" cFormControl id="status" required type="text" value="Mark" />
+    <c-form-feedback [valid]="true" tooltip>Looks good!</c-form-feedback>
+  </c-col>
+  <c-col xs="12">
+    <button cButton class="me-1" color="primary" type="submit">
+      Submit
+    </button>
+  </c-col>
+</form>

@@ -1,0 +1,51 @@
+
+<form  (ngSubmit) ="onSubmit()"
+      #tooltipForm="ngForm"
+      cForm
+      class="row g-3 needs-validation"
+>
+<c-col class="position-relative" [md]="4">
+  <label cLabel for="titre">Title</label>
+  <input  [(ngModel)]="mission.titre" name="titre" cFormControl id="titre" required type="text" value="Mark" />
+  <c-form-feedback [valid]="true" tooltip>Looks good!</c-form-feedback>
+</c-col>
+  <c-col class="position-relative" [md]="4">
+    <label cLabel for="description">Description</label>
+    <input  [(ngModel)]="mission.description" name="Description" cFormControl id="description" required type="text" value="Mark" />
+    <c-form-feedback [valid]="true" tooltip>Looks good!</c-form-feedback>
+  </c-col>
+  <c-col class="position-relative" [md]="4">
+    <label cLabel for="dateDebut">Start Date </label>
+    <input  [(ngModel)]="mission.dateDebut" name="dateDebut" cFormControl id="dateDebut" required type="date" value="Otto" />
+    <c-form-feedback [valid]="true" tooltip>Looks good!</c-form-feedback>
+  </c-col>
+
+  <c-col class="position-relative" [md]="4">
+    <label cLabel for="dateFin">End Date </label>
+    <input  [(ngModel)]="mission.dateFin" name="dateFin" cFormControl id="dateFin" required type="date" value="Otto" />
+    <c-form-feedback [valid]="true" tooltip>Looks good!</c-form-feedback>
+  </c-col>
+  <c-col class="position-relative" [md]="4">
+    <label cLabel for="tempsEstime"> Estimated Time</label>
+    <input  [(ngModel)]="mission.tempsEstime" name="tempsEstime" cFormControl id="tempsEstime" required type="date" value="Otto" />
+    <c-form-feedback [valid]="true" tooltip>Looks good!</c-form-feedback>
+  </c-col>
+  <c-col class="position-relative" [md]="4">
+    <label cLabel for="tempsPasse">Time Spent</label>
+    <input  [(ngModel)]="mission.tempsEstime" name="tempsPasse" cFormControl id="tempsPasse" required type="date" value="Otto" />
+    <c-form-feedback [valid]="true" tooltip>Looks good!</c-form-feedback>
+  </c-col>
+
+
+  <c-col class="position-relative" [md]="4">
+    <label cLabel for="status">Status</label>
+    <input  [(ngModel)]="mission.status" name="status" cFormControl id="status" required type="text" value="Mark" />
+    <c-form-feedback [valid]="true" tooltip>Looks good!</c-form-feedback>
+  </c-col>
+
+  <c-col xs="12">
+    <button cButton class="me-1" color="primary" type="submit">
+      Submit
+    </button>
+  </c-col>
+</form>

@@ -1,0 +1,21 @@
+<div class="container">
+  <table class="pointage-table">
+    <tr>
+      <td colspan="2">
+        <button *ngIf="!isPointageStarted" (click)="startPointage()">Login</button>
+        <button *ngIf="isPointageStarted" (click)="stopPointage()">Logout</button>
+      </td>
+    </tr>
+    <tr *ngIf="isPointageStarted">
+      <td>Current Pointage:</td>
+      <td>Arrival Time: {{ pointage.arrivalTime }}</td>
+    </tr>
+    <tr *ngIf="!isPointageStarted">
+      <td>Pointage Stopped</td>
+      <td>
+        <p>Departure Time: {{ pointage.departureTime }}</p>
+        <p>Arrival Time: {{ pointage.arrivalTime }}</p>
+      </td>
+    </tr>
+  </table>
+</div>

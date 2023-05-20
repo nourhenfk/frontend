@@ -1,0 +1,42 @@
+.create-formateur {
+  max-width: 600px;
+  margin: 0 auto;
+
+  h2 {
+    text-align: center;
+  }
+
+  form {
+    margin-top: 20px;
+
+    label {
+      display: block;
+      font-weight: bold;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    input[type="file"] {
+      width: 100%;
+      padding: 5px;
+      margin-bottom: 10px;
+    }
+
+    .form-feedback {
+      color: #888;
+      font-size: 12px;
+    }
+
+    .form-feedback.valid {
+      color: green;
+    }
+
+    .form-feedback.invalid {
+      color: red;
+    }
+
+    button {
+      margin-top: 10px;
+    }
+  }
+}

@@ -1,0 +1,35 @@
+
+<table [striped]="true" cTable>
+  <thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">Title</th>
+    <th scope="col">Description</th>
+    <th scope="col">Start Date</th>
+    <th scope="col">End Date</th>
+    <th scope="col">Status</th>
+    <th scope="col">formateurEx</th>
+    <th scope="col">formateurIn</th>
+
+    <th scope="col">Action</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor ="let Formation of ListFormations">
+    <th scope="row" >1</th>
+    <td>{{Formation.titre}}</td>
+    <td>{{Formation.description}}</td>
+    <td>{{Formation.dateDebut}}</td>
+    <td>{{Formation.dateFin}}</td>
+    <td>{{Formation.status}}</td>
+    <td>{{Formation.formateurEx}}</td>
+    <td>{{Formation.formateurIn}}</td>
+    <td>
+      <button cButton color="success" (click)="updateFormation(Formation.id)">Update</button>
+      <button cButton color="danger" (click)="deleteFormation(Formation.id)">Delete</button>
+
+    </td>
+  </tr>
+
+  </tbody>
+</table>

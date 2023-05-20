@@ -1,0 +1,42 @@
+
+<form  (ngSubmit) ="onSubmit()"
+      #tooltipForm="ngForm"
+      cForm
+      class="row g-3 needs-validation"
+>
+<c-col class="position-relative" [md]="4">
+  <label cLabel for="prenom">Prenom</label>
+  <input  [(ngModel)]="formateur.prenom" name="prenom" cFormControl id="prenom" required type="text" value="Mark" />
+  <c-form-feedback [valid]="true" tooltip>Looks good!</c-form-feedback>
+</c-col>
+  <c-col class="position-relative" [md]="4">
+    <label cLabel for="nom">Nom</label>
+    <input  [(ngModel)]="formateur.nom" name="nom" cFormControl id="nom" required type="text" value="Mark" />
+    <c-form-feedback [valid]="true" tooltip>Looks good!</c-form-feedback>
+  </c-col>
+  <c-col class="position-relative" [md]="6">
+    <label cLabel for="phone" >Phone</label>
+    <input [(ngModel)]="formateur.phone" name="phone" cFormControl id="phone" required type="number" />
+    <c-form-feedback [valid]="false" tooltip>Please provide a number.</c-form-feedback>
+  </c-col>
+
+  <c-col class="position-relative" [md]="4">
+    <label cLabel for="company">Company</label>
+    <input  [(ngModel)]="formateur.company" name="company" cFormControl id="company" required type="text" value="Mark" />
+    <c-form-feedback [valid]="true" tooltip>Looks good!</c-form-feedback>
+  </c-col>
+  <div class="avatar-container" (click)="onClickFileInput()">
+    <img class="formateur-info" ngIf="formateur.photo" [src]="'data:image/png;base64,' + formateur.photo" alt="User photo">
+    <div *ngIf="!formateur.photo" class="avatar-placeholder">
+      <span>Click to upload photo</span>
+    </div>
+
+  </div>
+
+
+  <c-col xs="12">
+    <button cButton class="me-1" color="primary" type="submit">
+      Submit
+    </button>
+  </c-col>
+</form>

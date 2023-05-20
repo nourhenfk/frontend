@@ -1,0 +1,34 @@
+
+<table [striped]="true" cTable>
+  <thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">Title</th>
+    <th scope="col">Description</th>
+    <th scope="col">Start Date</th>
+    <th scope="col">End Date</th>
+    <th scope="col">estimated time</th>
+    <th scope="col">time spent</th>
+    <th scope="col">Status</th>
+    <th scope="col">Action</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor ="let Mission of ListMissions">
+    <th scope="row" >1</th>
+    <td>{{Mission.titre}}</td>
+    <td>{{Mission.description}}</td>
+    <td>{{Mission.dateDebut}}</td>
+    <td>{{Mission.dateFin}}</td>
+    <td>{{Mission.tempsEstime}}</td>
+    <td>{{Mission.tempsPasse}}</td>
+    <td>{{Mission.status}}</td>
+    <td>
+      <button cButton color="success" (click)="updateMission(Mission.id)">Update</button>
+      <button cButton color="danger" (click)="deleteMission(Mission.id)">Delete</button>
+
+    </td>
+  </tr>
+
+  </tbody>
+</table>

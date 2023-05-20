@@ -1,0 +1,56 @@
+
+<form  (ngSubmit) ="onSubmit()"
+      #tooltipForm="ngForm"
+      cForm
+      class="row g-3 needs-validation"
+>
+<c-col class="position-relative" [md]="4">
+  <label cLabel for="firstname">username</label>
+  <input  [(ngModel)]="username" name="username" cFormControl id="username" required type="text" value="Mark" />
+  <c-form-feedback [valid]="true" tooltip>Looks good!</c-form-feedback>
+</c-col>
+  <c-col class="position-relative" [md]="4">
+    <label cLabel for="firstname">First name</label>
+    <input  [(ngModel)]="employee.firstname" name="firstname" cFormControl id="firstname" required type="text" value="Mark" />
+    <c-form-feedback [valid]="true" tooltip>Looks good!</c-form-feedback>
+  </c-col>
+  <c-col class="position-relative" [md]="4">
+    <label cLabel for="lastname">Last name</label>
+    <input  [(ngModel)]="employee.lastname" name="lastname" cFormControl id="lastname" required type="text" value="Otto" />
+    <c-form-feedback [valid]="true" tooltip>Looks good!</c-form-feedback>
+  </c-col>
+  <c-col class="position-relative" [md]="4">
+    <label cLabel for="validationTooltipUsername" >Email</label>
+    <c-input-group class="has-validation" >
+      <span cInputGroupText id="inputGroupPrependTooltip">@</span>
+      <input aria-describedby="email"
+      [(ngModel)]="employee.email" name="email"
+             cFormControl
+             id="email"
+             required
+             type="text"
+      />
+      <c-form-feedback [valid]="false" tooltip>Please choose an email.</c-form-feedback>
+    </c-input-group>
+  </c-col>
+  <c-col class="position-relative" [md]="6">
+    <label cLabel for="tel" >Phone Number</label>
+    <input [(ngModel)]="employee.tel" name="tel" cFormControl id="tel" required type="number" />
+    <c-form-feedback [valid]="false" tooltip>Please provide a phone number.</c-form-feedback>
+  </c-col>
+  <c-col class="position-relative" [md]="3">
+    <label cLabel for="validationTooltip04" >Adress</label>
+    <input [(ngModel)]="employee.adress" name="adress" cFormControl id="adress" required type="text" />
+    <c-form-feedback [valid]="false" tooltip>Please provide a valid adress.</c-form-feedback>
+  </c-col>
+  <c-col class="position-relative" [md]="6">
+    <label cLabel for="tel" >Password</label>
+    <input [(ngModel)]="password" name="password" cFormControl id="password" required type="text" />
+    <c-form-feedback [valid]="false" tooltip>Please provide a phone number.</c-form-feedback>
+  </c-col>
+  <c-col xs="12">
+    <button cButton class="me-1" color="primary" type="submit">
+      Submit
+    </button>
+  </c-col>
+</form>

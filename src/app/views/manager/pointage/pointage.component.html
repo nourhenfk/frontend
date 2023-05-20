@@ -1,0 +1,14 @@
+<div class="container">
+  <button *ngIf="!isPointageStarted" (click)="startPointage()">Login</button>
+  <button *ngIf="isPointageStarted" (click)="stopPointage()">Logout</button>
+
+  <div *ngIf="isPointageStarted">
+    <p>Current Pointage:</p>
+    <p>Arrival Time: {{ pointage.arrivalTime }}</p>
+  </div>
+
+  <div *ngIf="!isPointageStarted">
+    <p>Pointage Stopped</p>
+    <p>Departure Time: {{ pointage.departureTime }}</p>
+  </div>
+</div>

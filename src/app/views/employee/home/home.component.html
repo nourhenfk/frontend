@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="mood-box">
+    <h1>Comment allez-vous aujourd'hui ?</h1>
+
+    <div class="smileys">
+      <button (click)="setMood('happy')"><img src="assets/happy.png" alt="Happy"></button>
+      <button (click)="setMood('neutral')"><img src="assets/neutral.jpg" alt="Neutral"></button>
+      <button (click)="setMood('sad')"><img src="assets/angry.png" alt="Sad"></button>
+    </div>
+
+    <p>Vous avez choisi : {{mood}}</p>
+  </div>
+</div>

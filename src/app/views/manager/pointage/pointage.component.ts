@@ -1,3 +1,4 @@
+import { INavData } from '@coreui/angular';
 import { PointageServiceService } from './../../../services/pointage-service.service';
 import { Pointage } from './../../../models/pointage.model';
 import { Component, OnInit } from '@angular/core';
@@ -13,12 +14,27 @@ export class PointageComponent implements OnInit {
   isPointageStarted: boolean = false;
   pointage!: Pointage;
   user!: User;
+  isPointageTerminated: boolean = false;
 
   constructor(private pointageService: PointageServiceService, private authService: AuthServiceService) { }
 
   ngOnInit(): void {
-    this.pointage = new Pointage(0, '', '', new User('', '', '')); // Provide the required arguments
-    this.user = new User('', '', '');
+    this.pointage = new Pointage(0, '', '', new User(0,'', '', '')); // Provide the required arguments
+    this.user = new User(0,'', '', '');
+    this.pointageService.getTodayPointage().subscribe((data:any) => {
+      this.pointage.id = data.id
+      this.pointage.arrivalTime = data.arrivalTime
+      this.pointage.departureTime = data.departureTime
+
+      if(this.pointage.id === null) { //not set today yet
+        //nothing todo
+      } else {
+        this.isPointageStarted = true
+        if(this.pointage.departureTime !== null) {
+          this.isPointageTerminated = true
+        }
+      }
+    })
   }
 
   startPointage(): void {
@@ -49,7 +65,7 @@ export class PointageComponent implements OnInit {
         },
         (error) => {
           if(error.status == 200) {
-            this.isPointageStarted = false;
+            this.isPointageTerminated = true;
           this.pointage.departureTime = new Date().toLocaleString();
           }
           // Handle error if necessary

@@ -1,0 +1,8 @@
+<div *ngIf="employee && employee.missions">
+  <h2>Missions</h2>
+  <ul>
+    <li *ngFor="let mission of employee.missions">
+      {{ mission.titre }} - {{ mission.description }}
+    </li>
+  </ul>
+</div>

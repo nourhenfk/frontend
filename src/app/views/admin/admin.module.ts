@@ -10,7 +10,7 @@ import { UpdateManagerComponent } from './update-manager/update-manager.componen
 import { CreateEmployeeComponent } from './create-employee/create-employee.component';
 import { UpdateEmployeeComponent } from './update-employee/update-employee.component';
 import { ListeEmployeeComponent } from './liste-employee/liste-employee.component';
-import { DetailsEmployeeComponent } from './details-employee/details-employee.component';
+
 import { RegistrationReqestsComponent } from './registration-reqests/registration-reqests.component';
 import { GridModule, FormModule, TableModule, ButtonModule } from '@coreui/angular';
 
@@ -24,7 +24,7 @@ import { GridModule, FormModule, TableModule, ButtonModule } from '@coreui/angul
     CreateEmployeeComponent,
     UpdateEmployeeComponent,
     ListeEmployeeComponent,
-    DetailsEmployeeComponent,
+   
     RegistrationReqestsComponent,
 
   ],

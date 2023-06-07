@@ -17,9 +17,9 @@ export class PointageComponent implements OnInit {
   constructor(private pointageService: PointageServiceService, private authService: AuthServiceService) { }
 
   ngOnInit(): void {
-    this.pointage = new Pointage(0, '', '', new User('', '', '')); // Provide the required arguments
-    this.user = new User('', '', '');
-  }
+    this.pointage = new Pointage(0, '', '', new User(0,'', '', '')); // Provide the required arguments
+    this.user = new User(0,'', '', '');
+  } 
 
   startPointage(): void {
 

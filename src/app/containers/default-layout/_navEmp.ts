@@ -38,7 +38,7 @@ export const navEmployee: INavData[] = [
       children: [
         {
           name: 'Missions',
-          url: 'manager/createFormation'
+          url: 'employee/missions'
         },
 
         {
@@ -48,7 +48,7 @@ export const navEmployee: INavData[] = [
 
         {
           name: 'Announcements',
-          url: 'manager/formations'
+          url: 'manager/announcements'
         }
 
       ]},

@@ -1,7 +1,6 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Mission } from '../models/mission.model';
 import { Formation } from '../models/formation.model';
 
 @Injectable({
@@ -31,5 +30,17 @@ export class FormationServiceService {
 
   deleteFormation(id: number): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/deleteFormation/${id}`);
+  }
+
+  uploadDocuments(formationId: number, documents: File[]): Observable<void> {
+    const formData: FormData = new FormData();
+    for (let i = 0; i < documents.length; i++) {
+      formData.append('documents', documents[i]);
+    }
+
+    const headers = new HttpHeaders();
+    headers.append('Content-Type', 'multipart/form-data');
+
+    return this.http.post<void>(`${this.apiUrl}/${formationId}/documents`, formData, { headers: headers });
   }
 }

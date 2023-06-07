@@ -5,6 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, tap } from 'rxjs';
 import { User } from '../models/user';
 import { Router } from '@angular/router';
+import { EmployeeService } from './employee-service.service';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,8 @@ export class AuthServiceService {
   private baseUrl = 'http://localhost:8080';
 
   constructor(private http: HttpClient,
-    private router :Router) { }
+    private router :Router,
+    private employeeService: EmployeeService) { }
 
   register(user: User): Observable<any> {
     const url = `${this.baseUrl}/api/v1/auth/register`;
@@ -90,4 +92,14 @@ export class AuthServiceService {
       return undefined;
     }
   }
+  getEmployeeId(): number | undefined {
+    const decoder = new JwtHelperService();
+    try {
+      return decoder.decodeToken(this.getAuthorizationToken()).id;
+    } catch (error) {
+      console.error('Error decoding authentication token:', error);
+      return undefined;
+    }
+  }
+
 }

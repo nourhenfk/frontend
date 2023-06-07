@@ -8,7 +8,7 @@ import {AuthServiceService} from 'src/app/services/auth-service.service'
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
-  user: User = new User('', '', '');
+  user: User = new User(0,'', '', '');
 
   constructor(private authService: AuthServiceService,
     private router: Router) { }

@@ -1,5 +1,7 @@
+
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ListeRequestsComponent } from './leaveRequest/liste-requests/liste-requests.component';
 
 import { CreateFormateurComponent } from './formateurExterne/create-formateur/create-formateur.component';
 import { UpdateFormateurComponent } from './formateurExterne/update-formateur/update-formateur.component';
@@ -18,6 +20,11 @@ import { ListeMissionsComponent } from './missions/liste-missions/liste-missions
 import { CreateFormationComponent } from './formations/create-formation/create-formation.component';
 import { UpdateFormationComponent } from './formations/update-formation/update-formation.component';
 import { ListeFormationsComponent } from './formations/liste-formations/liste-formations.component';
+import { LeaveRequestFormComponent } from './leaveRequest/leave-request-form/leave-request-form.component';
+import { UpdateleaveRequestComponent } from './leaveRequest/updateleave-request/updateleave-request.component';
+import { DetailRequestComponent } from './leaveRequest/detail-request/detail-request.component';
+
+
 
 const routes: Routes = [
   { path: 'createEmployee', component:  CreateEmployeeComponent},
@@ -36,6 +43,12 @@ const routes: Routes = [
   { path: 'createAnnouncement', component: CreateAnnouncementComponent },
   { path: 'updateAnnouncement/:id', component:  UpdateAnnouncementComponent},
   { path: 'announcements', component:  ListeAnnouncementsComponent},
+  { path: 'leaveRequestForm', component:  LeaveRequestFormComponent},
+  { path: 'updateleaveRequest/:id', component:  UpdateleaveRequestComponent},
+  { path: 'leaveRequests', component:  ListeRequestsComponent},
+  { path: 'leaveRequestDetails', component:  DetailRequestComponent},
+
+
 ];
 
 @NgModule({

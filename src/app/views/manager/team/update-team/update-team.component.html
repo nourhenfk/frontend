@@ -1,0 +1,32 @@
+<div class="container">
+  <h2>Update Team</h2>
+  <form [formGroup]="teamForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="name">Name:</label>
+      <input type="text" id="name" class="form-control" formControlName="name">
+      <div *ngIf="teamForm.controls['name'].invalid && teamForm.controls['name'].touched"
+           class="text-danger">
+        Name is required.
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="department">Department:</label>
+      <select id="department" class="form-control" formControlName="department" (change)="onDepartmentChange()">
+        <option [ngValue]="undefined">Select Department</option>
+        <option *ngFor="let department of departments" [ngValue]="department">{{ department.name }}</option>
+      </select>
+      <div *ngIf="teamForm.controls['department'].invalid && teamForm.controls['department'].touched"
+           class="text-danger">
+        Department is required.
+      </div>
+    </div>
+    <c-col class="position-relative" [md]="4">
+      <label cLabel for="users">Users</label>
+      <select id="users" class="form-control" formControlName="users" multiple>
+        <option *ngFor="let user of users" [ngValue]="user">{{ user.username }}</option>
+      </select>
+    </c-col>
+
+    <button type="submit" class="btn btn-primary">Update</button>
+  </form>
+</div>

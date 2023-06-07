@@ -1,0 +1,39 @@
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 10px;
+}
+
+strong {
+  font-weight: bold;
+}
+
+.documents {
+  margin-top: 20px;
+}
+
+.documents a {
+  display: block;
+  margin-bottom: 10px;
+  color: blue;
+  text-decoration: underline;
+}
+
+.documents a:hover {
+  color: navy;
+}
+

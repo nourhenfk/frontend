@@ -1,0 +1,14 @@
+<div class="mon-pointage-container">
+  <h2>My Pointages</h2>
+  <div *ngIf="pointages.length > 0">
+    <ul>
+      <li *ngFor="let pointage of pointages">
+        <p>Arrival Time: {{ pointage.arrivalTime | date:'medium' }}</p>
+        <p>Departure Time: {{ pointage.departureTime | date:'medium' }}</p>
+      </li>
+    </ul>
+  </div>
+  <div *ngIf="pointages.length === 0">
+    <p>No pointages available.</p>
+  </div>
+</div>

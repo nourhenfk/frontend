@@ -1,6 +1,6 @@
 import { Employee } from "./employee";
-import { FormateurInterne } from "./formateur-interne.model";
 import { FormateurExterne } from "./formateur.model";
+
 
 export class Formation {
   id: number;
@@ -9,10 +9,10 @@ export class Formation {
   dateDebut: Date;
   dateFin: Date;
   status: Status;
-  documents: string;
+  documents: File[];
   formateurEx?: FormateurExterne;
-    formateurIn?: FormateurInterne;
-    participants?: Employee[];
+  employee?: Employee;
+  participants?: Employee[];
 
   constructor(
     id: number,
@@ -21,9 +21,9 @@ export class Formation {
     dateDebut: Date,
     dateFin: Date,
     status: Status,
-    documents: string,
+    documents: File[],
     formateurEx?: FormateurExterne,
-    formateurIn?: FormateurInterne,
+    employee?: Employee,
     participants?: Employee[]
   ) {
     this.id = id;
@@ -33,20 +33,21 @@ export class Formation {
     this.dateFin = dateFin;
     this.status = status;
     this.documents = documents;
-    if(typeof formateurEx !== 'undefined'){
+    if (typeof formateurEx !== 'undefined') {
       this.formateurEx = formateurEx;
     }
-    if(typeof formateurIn !== 'undefined'){
-      this.formateurIn = formateurIn;
+    if (typeof employee !== 'undefined') {
+      this.employee = employee;
     }
-    if(typeof participants !== 'undefined'){
+    if (typeof participants !== 'undefined') {
       this.participants = participants;
     }
   }
 }
+
 export enum Status {
   EN_COURS = "EN_COURS",
   TERMINEE = "TERMINEE",
   ANNULEE = "ANNULEE",
-  EN_PAUSE = "EN_PAUSE"
+  EN_PAUSE = "EN_PAUSE",
 }

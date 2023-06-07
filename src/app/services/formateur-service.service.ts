@@ -8,7 +8,7 @@ import { FormateurExterne } from '../models/formateur.model';
 })
 export class FormateurServiceService {
 
-  public apiUrl = 'http://localhost:8080/api/v1/auth/formateurEx';
+  private apiUrl = 'http://localhost:8080/api/v1/auth/formateurEx';
 
   constructor(private http: HttpClient) { }
 
@@ -31,10 +31,5 @@ export class FormateurServiceService {
   deleteFormateur(id: number): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/deleteFormateur/${id}`);
   }
-  updatePhoto(id: number, file: File): Observable<FormateurExterne> {
-    const formData = new FormData();
-    formData.append('file', file);
-    const url = `${this.apiUrl}/UpdatePhoto/${id}`;
-    return this.http.put<FormateurExterne>(url, formData);
-  }
+  
 }

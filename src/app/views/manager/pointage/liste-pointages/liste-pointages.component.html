@@ -1,0 +1,21 @@
+<div>
+  <h2>List of Pointages</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Arrival Time</th>
+        <th>Departure Time</th>
+        <th>User</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let pointage of pointages">
+        <td>{{ pointage.id }}</td>
+        <td>{{ pointage.arrivalTime }}</td>
+        <td>{{ pointage.departureTime }}</td>
+        <td>{{ pointage.user.username }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

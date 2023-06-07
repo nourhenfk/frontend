@@ -1,0 +1,15 @@
+<div *ngIf="team">
+  <h1>My Team</h1>
+  <div class="team-details">
+    <p><strong>Team Name:</strong> {{ team.name }}</p>
+    <p><strong>Department:</strong> {{ team.department.name }}</p>
+  </div>
+  <h2>Team Members</h2>
+  <ul>
+    <li *ngFor="let user of team.users">{{ user.username }}</li>
+  </ul>
+</div>
+
+<div *ngIf="!team">
+  <p>Loading team information...</p>
+</div>

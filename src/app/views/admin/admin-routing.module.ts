@@ -4,7 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AuthGuardGuard } from 'src/app/auth-guard.guard';
 import { CreateEmployeeComponent } from './create-employee/create-employee.component';
 import { CreateManagerComponent } from './create-manager/create-manager.component';
-import { DetailsEmployeeComponent } from './details-employee/details-employee.component';
+
 import { DetailsManagerComponent } from './details-manager/details-manager.component';
 import { ListeEmployeeComponent } from './liste-employee/liste-employee.component';
 import { ListeManagerComponent } from './liste-manager/liste-manager.component';
@@ -19,7 +19,7 @@ const routes: Routes = [
   {path:'UpdateManager/:id', component: UpdateManagerComponent},
   {path:'UpdateEmployee/:id', component: UpdateEmployeeComponent},
   {path:'DetailsManager/:id', component: DetailsManagerComponent },
-  {path:'DetailsEmployee/:id', component: DetailsEmployeeComponent },
+ 
   {path :'CreateEmployee',component:CreateEmployeeComponent },
 ];
 

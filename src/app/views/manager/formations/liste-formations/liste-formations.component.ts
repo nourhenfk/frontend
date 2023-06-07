@@ -18,8 +18,7 @@ export class ListeFormationsComponent {
 this.getFormationList();
   }
 private getFormationList(){
-  this.FormationServiceService.getAllFormations().subscribe(data => {this.ListFormations = data;
-  });
+  this.FormationServiceService.getAllFormations().subscribe(data => {this.ListFormations = data; console.log(data)  });
 }
 updateFormation(id:number){
 this.router.navigate(['manager/updateFormation',id]);

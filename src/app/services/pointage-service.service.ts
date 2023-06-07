@@ -32,7 +32,14 @@ export class PointageServiceService {
     return this.http.post<any>(`${this.baseUrl}/terminer-pointage`, user, {headers: this.headers});
   }
 
+  getTodayPointage() {
+    return this.http.get<any>(`${this.baseUrl}/todayPointage`, {headers: this.headers})
+   }
+
   getAllPointagesByUser(userId: number): Observable<Pointage[]> {
     return this.http.get<Pointage[]>(`${this.baseUrl}/getAllPointagesByUser/${userId}`, {headers: this.headers});
+  }
+  getAllPointages(): Observable<Pointage[]> {
+    return this.http.get<Pointage[]>(`${this.baseUrl}/getAllPointages`, { headers: this.headers });
   }
 }

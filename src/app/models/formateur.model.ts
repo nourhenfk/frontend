@@ -4,8 +4,6 @@ export class FormateurExterne {
   nom: string;
   phone: number;
   company: string;
-  photoUrl?:string;
-  photo?: Blob;
 
 
   constructor(
@@ -14,15 +12,13 @@ export class FormateurExterne {
     nom: string,
     phone: number,
     company: string,
-    photoUrl?:string,
-    photo?: Blob
+    picture: string
   ) {
     this.id = id;
     this.prenom = prenom;
     this.nom = nom;
     this.phone = phone;
     this.company = company;
-    this.photoUrl= photoUrl;
-    this.photo=photo;
+
   }
 }

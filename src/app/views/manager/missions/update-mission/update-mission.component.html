@@ -27,12 +27,12 @@
   </c-col>
   <c-col class="position-relative" [md]="4">
     <label cLabel for="tempsEstime"> Estimated Time</label>
-    <input  [(ngModel)]="mission.tempsEstime" name="tempsEstime" cFormControl id="tempsEstime" required type="date" value="Otto" />
+    <input  [(ngModel)]="mission.tempsEstime" name="tempsEstime" cFormControl id="tempsEstime" required type="number" value="Otto" />
     <c-form-feedback [valid]="true" tooltip>Looks good!</c-form-feedback>
   </c-col>
   <c-col class="position-relative" [md]="4">
     <label cLabel for="tempsPasse">Time Spent</label>
-    <input  [(ngModel)]="mission.tempsEstime" name="tempsPasse" cFormControl id="tempsPasse" required type="date" value="Otto" />
+    <input  [(ngModel)]="mission.tempsEstime" name="tempsPasse" cFormControl id="tempsPasse" required type="number" value="Otto" />
     <c-form-feedback [valid]="true" tooltip>Looks good!</c-form-feedback>
   </c-col>
 
@@ -41,6 +41,14 @@
     <label cLabel for="status">Status</label>
     <input  [(ngModel)]="mission.status" name="status" cFormControl id="status" required type="text" value="Mark" />
     <c-form-feedback [valid]="true" tooltip>Looks good!</c-form-feedback>
+  </c-col>
+
+  <c-col class="position-relative" [md]="4">
+    <label  cLabel for="employee">Employee</label>
+    <select [(ngModel)]="idSelectedEmployee" name="status" aria-label="Employee" cSelect>
+      <option>Select employee</option>
+      <option *ngFor="let employee of employees" value="{{employee.id}}">{{employee.lastname}} {{employee.firstname}}</option>
+    </select>
   </c-col>
 
   <c-col xs="12">

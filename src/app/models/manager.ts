@@ -1,22 +1,52 @@
 import { User } from "./user";
 
 export class Manager {
-  id:number;
-  firstname:String;
-  lastname:String;
-  email:string;
-  tel : number;
-  adress :String;
-  user?:User;
-  constructor(id: number, firstname: string,lastname: string, email: string, tel: number, adress: string,user?:User) {
+  id: number;
+  firstname: string;
+  lastname: string;
+  email: string;
+  tel: number;
+  adress: string;
+  civility: string;
+  cin: number;
+  skills: string;
+  bankAccount: number;
+  dateOfBirth: Date;
+  picture: File;
+  education: string;
+  user?: User;
+
+  constructor(
+    id: number,
+    firstname: string,
+    lastname: string,
+    email: string,
+    tel: number,
+    adress: string,
+    civility: string,
+    cin: number,
+    skills: string,
+    bankAccount: number,
+    dateOfBirth: Date,
+    picture: File,
+    education: string,
+    user?: User
+  ) {
     this.id = id;
     this.firstname = firstname;
     this.lastname = lastname;
     this.email = email;
     this.tel = tel;
     this.adress = adress;
-    if(typeof user !== "undefined")
-    this.user=user;
-
-
-}}
+    this.civility = civility;
+    this.cin = cin;
+    this.skills = skills;
+    this.bankAccount = bankAccount;
+    this.dateOfBirth = dateOfBirth;
+    this.picture = picture;
+    this.education = education;
+    if (typeof user !== "undefined") {
+      this.user = user;
+    }
+  }
+}

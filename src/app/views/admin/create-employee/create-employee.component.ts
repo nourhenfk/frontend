@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Employee } from 'src/app/models/employee';
 import { User } from 'src/app/models/user';
-import { EmployeeServiceService } from 'src/app/services/employee-service.service';
+import { EmployeeService } from 'src/app/services/employee-service.service';
 
 @Component({
   selector: 'app-create-employee',
@@ -10,13 +10,15 @@ import { EmployeeServiceService } from 'src/app/services/employee-service.servic
   styleUrls: ['./create-employee.component.scss']
 })
 export class CreateEmployeeComponent {
-  employee: Employee = new Employee(0, "", "", "", 0, "");
+  employee: Employee = new Employee(0, "", "", "", 0, "", "", 0, "", 0, new Date(), new File([], ""), "");
   password: string = "";
   username:string ="";
-  constructor( private employeeServiceService :EmployeeServiceService,
+  id!:number;
+  constructor( private employeeServiceService :EmployeeService,
     private router :Router) { }
   saveEmployee(){
-    var user = new User(this.username,
+    var user = new User(this.id,
+      this.username,
       this.employee.email,
 
       this.password,

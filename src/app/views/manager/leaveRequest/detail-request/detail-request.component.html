@@ -1,0 +1,17 @@
+<div *ngIf="leaveRequest">
+  <h2>Leave Request Details</h2>
+  <ul>
+    <li><strong>ID:</strong> {{ leaveRequest.id }}</li>
+    <li><strong>Start Date:</strong> {{ leaveRequest.startDate }}</li>
+    <li><strong>End Date:</strong> {{ leaveRequest.endDate }}</li>
+    <li><strong>Reason:</strong> {{ leaveRequest.reason }}</li>
+    <li><strong>Documents:</strong>
+      <ul>
+        <li *ngFor="let document of leaveRequest.documents">
+          <a [href]="getDocumentUrl(document)" target="_blank">{{ document.name }}</a>
+        </li>
+      </ul>
+    </li>
+    <!-- Display other leave request properties -->
+  </ul>
+</div>

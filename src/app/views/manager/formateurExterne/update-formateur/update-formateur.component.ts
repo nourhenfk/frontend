@@ -31,23 +31,4 @@ export class UpdateFormateurComponent {
         this.router.navigate(['/manager/formateurs']);
       });
   }
-  onClickFileInput() {
-    const fileInput = document.getElementById('fileInput');
-    if (fileInput) {
-      fileInput.click();
-    }
-  }
-  onFileSelected(event: any) {
-    const file: File = event.target.files[0];
-    this.updatePhoto(this.formateur.id, file).subscribe(
-      (formateur: FormateurExterne) => {
-        console.log('Photo updated successfully!');
-        this.formateur = formateur;
-      },
-      (error) => console.log(error)
-    );
-  }
-  updatePhoto(id: number, file: File) {
-    return this.formateurServiceService.updatePhoto(id, file);
-  }
 }

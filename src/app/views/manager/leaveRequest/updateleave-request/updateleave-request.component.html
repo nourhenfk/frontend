@@ -1,0 +1,18 @@
+<form [formGroup]="leaveRequestForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="startDate">Start Date:</label>
+    <input type="date" id="startDate" formControlName="startDate" required>
+  </div>
+
+  <div>
+    <label for="endDate">End Date:</label>
+    <input type="date" id="endDate" formControlName="endDate" required>
+  </div>
+
+  <div>
+    <label for="reason">Reason:</label>
+    <textarea id="reason" formControlName="reason" required></textarea>
+  </div>
+
+  <button type="submit" [disabled]="leaveRequestForm.invalid || isSubmitting">Update</button>
+</form>

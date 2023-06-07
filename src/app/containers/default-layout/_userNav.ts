@@ -97,4 +97,28 @@ export const navItemsUser: INavData[] = [
       },
 
 
+      {
+        name: 'Leave Requests',
+        url: '/missions',
+        iconComponent: { name: 'cil-calculator' },
+        children: [
+          {
+            name: 'add Leave Request',
+            url: 'manager/leaveRequestForm'
+          },
+          {
+            name: 'updateLeave Request',
+            url: 'manager/updateleaveRequest'
+          },
+          {
+            name: 'Leave Requests',
+            url: 'manager/leaveRequests'
+          },
+
+
+        ]},
+      
+
+
+
 ];

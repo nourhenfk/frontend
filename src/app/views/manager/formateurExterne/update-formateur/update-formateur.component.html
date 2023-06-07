@@ -25,13 +25,7 @@
     <input  [(ngModel)]="formateur.company" name="company" cFormControl id="company" required type="text" value="Mark" />
     <c-form-feedback [valid]="true" tooltip>Looks good!</c-form-feedback>
   </c-col>
-  <div class="avatar-container" (click)="onClickFileInput()">
-    <img class="formateur-info" ngIf="formateur.photo" [src]="'data:image/png;base64,' + formateur.photo" alt="User photo">
-    <div *ngIf="!formateur.photo" class="avatar-placeholder">
-      <span>Click to upload photo</span>
-    </div>
 
-  </div>
 
 
   <c-col xs="12">

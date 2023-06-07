@@ -10,6 +10,7 @@
     <th scope="col">estimated time</th>
     <th scope="col">time spent</th>
     <th scope="col">Status</th>
+    <th> Employee</th>
     <th scope="col">Action</th>
   </tr>
   </thead>
@@ -23,6 +24,15 @@
     <td>{{Mission.tempsEstime}}</td>
     <td>{{Mission.tempsPasse}}</td>
     <td>{{Mission.status}}</td>
+    <td >
+    <ng-container *ngIf="Mission.employee !== undefined && Mission.employee !== null" >
+      {{Mission.employee.lastname}} {{Mission.employee.firstname}}
+    </ng-container>
+    <ng-container *ngIf="Mission.employee === undefined || Mission.employee === null" >
+      N/D
+    </ng-container>
+      </td>
+
     <td>
       <button cButton color="success" (click)="updateMission(Mission.id)">Update</button>
       <button cButton color="danger" (click)="deleteMission(Mission.id)">Delete</button>

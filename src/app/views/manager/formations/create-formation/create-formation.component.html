@@ -35,11 +35,31 @@
   </c-col>
 
 
-
+  <c-col class="position-relative" [md]="4">
+    <label  cLabel for="formateurEx">Formateur Externe</label>
+    <select [(ngModel)]="idSelectedFormateurEx" name="status" aria-label="formateurEx" cSelect>
+      <option>Select Formateur Externe</option>
+      <option *ngFor="let formateurEx of formateurExs" value="{{formateurEx.id}}">{{formateurEx.prenom}} {{formateurEx.nom}}</option>
+    </select>
+  </c-col>
+  <c-col class="position-relative" [md]="4">
+    <label  cLabel for="formateurIn">Formateur Interne</label>
+    <select [(ngModel)]="idSelectedFormateurIn" name="status" aria-label="formateurIn" cSelect>
+      <option>Select Formateur Interne</option>
+      <option *ngFor="let formateurIn of formateurIns" value="{{formateurIn.id}}">{{formateurIn.firstname}} {{formateurIn.lastname}}</option>
+    </select>
+  </c-col>
+  <c-col class="position-relative" [md]="4">
+    <label  cLabel for="participants">Les participants</label>
+    <select [(ngModel)]="idSelectedParticipants" multiple name="participants" aria-label="participants" cSelect>
+      <option>Select participants</option>
+      <option *ngFor="let employee of employees" value="{{employee.id}}">{{employee.firstname}} {{employee.lastname}}</option>
+    </select>
+  </c-col>
 
   <c-col class="position-relative" [md]="4">
     <label cLabel for="documents">Add documents</label>
-    <input  [(ngModel)]="formation.documents" name="documents" cFormControl id="documents" required type="text" value="Mark" />
+    <input [(ngModel)]="formation.documents" name="documents" cFormControl id="documents" type="file" multiple />
     <c-form-feedback [valid]="true" tooltip>Looks good!</c-form-feedback>
   </c-col>
 

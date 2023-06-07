@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Employee } from 'src/app/models/employee';
-import { EmployeeServiceService } from 'src/app/services/employee-service.service';
+import { EmployeeService } from 'src/app/services/employee-service.service';
 
 @Component({
   selector: 'app-update-employee',
@@ -10,14 +10,14 @@ import { EmployeeServiceService } from 'src/app/services/employee-service.servic
 })
 export class UpdateEmployeeComponent {
   id !: number;
-  employee: Employee = new Employee(0, "", "", "", 0, "");
+  employee: Employee = new Employee(0, "", "", "", 0, "", "", 0, "", 0, new Date(), new File([], ""), "");
 
-  constructor(private employeeServiceService : EmployeeServiceService,
+  constructor(private employeeServiceService : EmployeeService,
     private route :ActivatedRoute,
     private router :Router) { }
 
   ngOnInit(): void {
-this.employee=new Employee(0, "", "", "", 0, "");
+this.employee=new Employee(0, "", "", "", 0, "", "", 0, "", 0, new Date(), new File([], ""), "");
     this.id = this.route.snapshot.params['id'];
     this.employeeServiceService.getEmployeeById(this.id)
     .subscribe(data => {

@@ -1,0 +1,32 @@
+<div class="container">
+  <h2>Create Team</h2>
+  <form [formGroup]="teamForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="name">Name:</label>
+      <input type="text" id="name" class="form-control" formControlName="name">
+      <div *ngIf="teamForm.controls['name'].invalid && teamForm.controls['name'].touched"
+           class="text-danger">
+        Name is required.
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="department">Department:</label>
+      <select id="department" class="form-control" formControlName="department" (change)="onDepartmentChange()">
+        <option [ngValue]="undefined">Select Department</option>
+        <option *ngFor="let department of departments" [ngValue]="department">{{ department.name }}</option>
+      </select>
+      <div *ngIf="teamForm.controls['department'].invalid && teamForm.controls['department'].touched"
+           class="text-danger">
+        Department is required.
+      </div>
+    </div>
+    <c-col class="position-relative" [md]="4">
+      <label  cLabel for="user">Users</label>
+      <select [(ngModel)]="idSelectedUser" name="user" aria-label="User" cSelect>
+        <option>Select user</option>
+        <option *ngFor="let user of users" value="{{user.id}}">{{user.username}} </option>
+      </select>
+    </c-col>
+    <button type="submit" class="btn btn-primary" [disabled]="teamForm.invalid">Create</button>
+  </form>
+</div>

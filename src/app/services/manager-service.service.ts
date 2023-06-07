@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Manager } from '../models/manager';
@@ -8,17 +8,16 @@ import { Manager } from '../models/manager';
 })
 export class ManagerServiceService {
 
-  private baseUrl="http://localhost:8080/api/v1/auth/";
+  private baseUrl = 'http://localhost:8080/api/v1/auth/';
 
-  constructor(private httpClient :HttpClient) { }
+  constructor(private httpClient: HttpClient) { }
 
-  getManagerList():Observable <Manager[]>{
-    return this.httpClient.get<Manager[]>(`${this.baseUrl+'listManager'}`);
-
-
+  getManagerList(): Observable<Manager[]> {
+    return this.httpClient.get<Manager[]>(`${this.baseUrl}listManager`);
   }
+
   createManager(manager: Manager): Observable<Object> {
-    return this.httpClient.post(`${this.baseUrl+'addManager'}`,manager);
+    return this.httpClient.post(`${this.baseUrl}addManager`, manager);
   }
 
   getManagerById(id: number): Observable<Manager> {
@@ -28,7 +27,18 @@ export class ManagerServiceService {
   updateManager(id: number, manager: Manager): Observable<Manager> {
     return this.httpClient.put<Manager>(`${this.baseUrl}updateManager/${id}`, manager);
   }
+
   deleteManager(id: number): Observable<Object> {
-    return this.httpClient.delete(`${this.baseUrl}deleteManager/${id}`)
+    return this.httpClient.delete(`${this.baseUrl}deleteManager/${id}`);
+  }
+
+  uploadPicture(id: number, picture: File): Observable<Object> {
+    const formData = new FormData();
+    formData.append('picture', picture);
+
+    const headers = new HttpHeaders();
+    headers.append('Content-Type', 'multipart/form-data');
+
+    return this.httpClient.post(`${this.baseUrl}uploadPicture/${id}`, formData, { headers: headers });
   }
 }

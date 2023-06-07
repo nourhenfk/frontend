@@ -1,13 +1,16 @@
 <div class="container">
+  <ng-container *ngIf="!isPointageStarted || !isPointageTerminated">
+
   <button *ngIf="!isPointageStarted" (click)="startPointage()">Login</button>
   <button *ngIf="isPointageStarted" (click)="stopPointage()">Logout</button>
+</ng-container>
 
   <div *ngIf="isPointageStarted">
     <p>Current Pointage:</p>
     <p>Arrival Time: {{ pointage.arrivalTime }}</p>
   </div>
 
-  <div *ngIf="!isPointageStarted">
+  <div *ngIf="isPointageTerminated">
     <p>Pointage Stopped</p>
     <p>Departure Time: {{ pointage.departureTime }}</p>
   </div>

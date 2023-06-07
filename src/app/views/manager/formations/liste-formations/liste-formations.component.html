@@ -10,6 +10,7 @@
     <th scope="col">Status</th>
     <th scope="col">formateurEx</th>
     <th scope="col">formateurIn</th>
+    <th scope="col">Participants</th>
 
     <th scope="col">Action</th>
   </tr>
@@ -22,8 +23,25 @@
     <td>{{Formation.dateDebut}}</td>
     <td>{{Formation.dateFin}}</td>
     <td>{{Formation.status}}</td>
-    <td>{{Formation.formateurEx}}</td>
-    <td>{{Formation.formateurIn}}</td>
+    <td>
+      <ng-container *ngIf="Formation.formateurEx !== undefined && Formation.formateurEx !== null" >
+      {{Formation.formateurEx.nom}} {{Formation.formateurEx.prenom}}
+    </ng-container>
+    <ng-container *ngIf="Formation.formateurEx === undefined || Formation.formateurEx === null" >
+      N/D
+    </ng-container>
+  </td>
+
+    <td><ng-container *ngIf="Formation.employee !== undefined && Formation.employee !== null" >
+      {{Formation.employee.lastname}} {{Formation.employee.firstname}}
+    </ng-container>
+    <ng-container *ngIf="Formation.employee === undefined || Formation.employee === null" >
+      N/D
+    </ng-container> </td>
+
+    <th scope="col"><ng-container *ngFor="let participant of Formation.participants">
+      <p>{{participant.firstname}} {{participant.lastname}}</p> <br/>
+    </ng-container></th>
     <td>
       <button cButton color="success" (click)="updateFormation(Formation.id)">Update</button>
       <button cButton color="danger" (click)="deleteFormation(Formation.id)">Delete</button>

@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Employee } from 'src/app/models/employee';
+import { FormateurExterne } from 'src/app/models/formateur.model';
 import { Formation, Status } from 'src/app/models/formation.model';
 import { FormationServiceService } from 'src/app/services/formation-service.service';
 
@@ -9,8 +11,16 @@ import { FormationServiceService } from 'src/app/services/formation-service.serv
   styleUrls: ['./update-formation.component.scss']
 })
 export class UpdateFormationComponent {
-  formation: Formation = new Formation(0,"", "", new Date(), new Date(), Status.EN_COURS, "");
-  statusOptions = [
+  formation: Formation = new Formation(0, "", "", new Date(), new Date(), Status.EN_COURS, [], undefined);
+
+  formateurExs: FormateurExterne[] = [];
+  formateurIns: Employee[] = []
+  idSelectedFormateurIn: number = 0;
+  idSelectedFormateurEx: number = 0;
+  idSelectedParticipants: number[] = []
+  employees: Employee[] = []
+
+    statusOptions = [
     { value: Status.EN_COURS, label: 'En cours' },
     { value: Status.TERMINEE, label: 'Terminée' },
     { value: Status.ANNULEE, label: 'Annulée' },

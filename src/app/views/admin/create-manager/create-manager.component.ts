@@ -10,13 +10,15 @@ import { ManagerServiceService } from 'src/app/services/manager-service.service'
   styleUrls: ['./create-manager.component.scss']
 })
 export class CreateManagerComponent {
-  manager: Manager = new Manager(0, "", "", "", 0, "");
+  manager: Manager = new Manager(0, "", "", "", 0, "", "", 0, "", 0, new Date(), new File([], ""), "");
   password: string = "";
   username:string ="";
+  id!:number;
   constructor( private managerServiceService :ManagerServiceService,
     private router :Router) { }
   saveManager(){
-    var user = new User(this.username,
+    var user = new User(this.id,
+      this.username,
       this.manager.email,
 
       this.password,

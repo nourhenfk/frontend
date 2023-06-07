@@ -10,13 +10,13 @@ import { ManagerServiceService } from 'src/app/services/manager-service.service'
 })
 export class DetailsManagerComponent {
   id !: number;
-  manager: Manager = new Manager(0, "", "", "", 0, "");
+  manager: Manager = new Manager(0, "", "", "", 0, "", "", 0, "", 0, new Date(), new File([], ""), "");;
 
   constructor(private route:ActivatedRoute,
     private managerServiceService : ManagerServiceService) { }
 
   ngOnInit(): void {
-    this.manager=new Manager(0, "", "", "", 0, "");
+    this.manager=new Manager(0, "", "", "", 0, "", "", 0, "", 0, new Date(), new File([], ""), "");
     this.id = this.route.snapshot.params['id'];
     this.managerServiceService.getManagerById(this.id)
     .subscribe(data => {
